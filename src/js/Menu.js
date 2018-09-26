@@ -5,8 +5,8 @@ class Menu extends React.Component {
     render() {
         return (
             <div className="menu">
-                <a>データ一覧</a>
-                <a>データ入力</a>
+                <a onClick={()=>this.props.changePage("データ一覧")}>データ一覧</a>
+                <a onClick={()=>this.props.changePage("データ入力")}>データ入力</a>
             </div>
         );
     }
