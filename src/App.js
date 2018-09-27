@@ -11,8 +11,14 @@ class App extends Component {
     super(props);
       this.state = {
         currentPage:"データ一覧"
-      }
+      };
+      this.changePage = this.changePage.bind(this);
   }
+
+    changePage(currentPage) {
+        this.setState({currentPage: currentPage})
+    }
+
   render() {
     const currentPage = this.state.currentPage;
 
@@ -29,7 +35,9 @@ class App extends Component {
     return (
       <div className="App">
           <Header />
-          <Menu />
+          <Menu
+              changePage={this.changePage}
+          />
           <Content />
       </div>
     );
