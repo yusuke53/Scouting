@@ -6,9 +6,9 @@ class Input extends React.Component {
         super(props);
         this.state = {
             number : '',
-            shot : '',
-            GB : '',
-            miss : ''
+            shot : 0,
+            GB : 0,
+            miss : 0
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChangeNumber = this.handleChangeNumber.bind(this);
@@ -22,10 +22,9 @@ class Input extends React.Component {
 
     addshot(){
         this.setState({shot: this.state.shot+1});
-        console.log("aaaa");
     }
     addGB(){
-        this.setState({miss: this.state.miss+1});
+        this.setState({GB: this.state.GB+1});
     }
     addmiss(){
         this.setState({miss: this.state.miss+1});
@@ -51,12 +50,11 @@ class Input extends React.Component {
                     <label htmlFor="number">背番号</label>
                     <input type="text" name="number" value={this.state.number} onChange={this.handleChangeNumber} />
 
-                    <input type="checkbox" name="play" value="shot" onClick={()=>this.addshot} />shot
-                    <input type="checkbox" name="play" value="GB" onClick={()=>this.addGB} />GB
-                    <input type="checkbox" name="play" value="miss" onClick={()=>this.addmiss} />miss
-
                     <button type="submit">送信</button>
                 </form>
+                <button onClick={()=>this.addshot()}>shot</button>
+                <button onClick={()=>this.addGB()}>GB</button>
+                <button onClick={()=>this.addmiss()}>miss</button>
             </div>
         );
     }
